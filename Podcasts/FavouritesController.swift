@@ -1,16 +1,16 @@
 //
-//  MainTabBarController.swift
+//  FavouritesController.swift
 //  Podacasts
 //
-//  Created by Rishabh Raj on 01/10/18.
+//  Created by Rish on 01/10/18.
 //  Copyright © 2018 Rishabh Raj. All rights reserved.
 //
 
 import UIKit
 
-class MainTabBarController : UITabBarController {
+class FavouritesController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
 }
