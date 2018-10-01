@@ -13,6 +13,7 @@
 		B1AFE83F2161828A0009948C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFE83E2161828A0009948C /* MainTabBarController.swift */; };
 		DB9F45932161F0A4000B31D6 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F45922161F0A4000B31D6 /* FavouritesController.swift */; };
 		DB9F459621621877000B31D6 /* PodcastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F459521621877000B31D6 /* PodcastSearchController.swift */; };
+		DB9F459921622C49000B31D6 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F459821622C49000B31D6 /* Podcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B1AFE83E2161828A0009948C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DB9F45922161F0A4000B31D6 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
 		DB9F459521621877000B31D6 /* PodcastSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastSearchController.swift; sourceTree = "<group>"; };
+		DB9F459821622C49000B31D6 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		B1AFE82B21617FD70009948C /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				DB9F459721622C35000B31D6 /* Models */,
 				DB9F45942162185E000B31D6 /* Controllers */,
 				B1AFE82C21617FD70009948C /* AppDelegate.swift */,
 				B1AFE83E2161828A0009948C /* MainTabBarController.swift */,
@@ -73,6 +76,14 @@
 				DB9F459521621877000B31D6 /* PodcastSearchController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB9F459721622C35000B31D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB9F459821622C49000B31D6 /* Podcast.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				DB9F45932161F0A4000B31D6 /* FavouritesController.swift in Sources */,
 				B1AFE83F2161828A0009948C /* MainTabBarController.swift in Sources */,
 				B1AFE82D21617FD70009948C /* AppDelegate.swift in Sources */,
+				DB9F459921622C49000B31D6 /* Podcast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
