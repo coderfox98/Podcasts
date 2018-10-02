@@ -39,37 +39,13 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        let url = "https://itunes.apple.com/search"
-        let parameters = ["term": searchText, "media": "podcast"]
         
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
-            if let error = dataResponse.error {
-                print(error)
-                return
-            }
-            guard let data = dataResponse.data else { return }
-            
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                print("The search Result:-",searchResult.resultCount)
-                searchResult.results .forEach({ (podcast) in
-                    print(podcast.artistName ?? "", podcast.trackName ?? "")
-                })
-                self.podcasts = searchResult.results
-                self.tableView.reloadData()
-                
-            } catch let decodeError {
-                print("Error in decoding:-", decodeError)
-            }
+        APIService.shared.fetchPodcast(searchText: searchText) { (podcasts) in
+            self.podcasts = podcasts
+            self.tableView.reloadData()
         }
-        
     }
     
-    struct SearchResult : Decodable {
-        let resultCount : Int
-        let results : [Podcast]
-    }
     
     //MARK:- UITableView
     
