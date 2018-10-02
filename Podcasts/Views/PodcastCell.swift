@@ -22,6 +22,7 @@ class PodcastCell : UITableViewCell {
             episodeCountLabel.text = "\(podcast.trackCount ?? 0) Episodes"
             
             guard let url = URL(string: podcast.artworkUrl600 ?? "") else { return }
+            
 //            URLSession.shared.dataTask(with: url) { (data, _, _) in
 //                print(data)
 //                guard let data = data else { return }
