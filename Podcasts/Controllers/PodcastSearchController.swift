@@ -11,10 +11,7 @@ import Alamofire
 
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
-    var podcasts = [
-        Podcast(trackName:"coderfox98", artistName: "Rish Studio"),
-        Podcast(trackName:"coderfox98", artistName: "Rish Studio")
-    ]
+    var podcasts = [Podcast]()
     
     let cellId = "cellId"
     
@@ -49,9 +46,24 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     //MARK:- UITableView
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Please enter a search term"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        return label
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 250
+    }
+    
     fileprivate func setupTableView() {
         // Register Call for the TableView
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView()
+        let nib = UINib(nibName: "PodcastCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,13 +71,13 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let podcast = podcasts[indexPath.item]
-        cell.textLabel?.numberOfLines = -1
-        cell.textLabel?.text = "\(podcast.trackName ?? "")\n\(podcast.artistName ?? "")"
-        cell.imageView?.image = UIImage(named: "podcast")
-        cell.imageView?.contentMode = .scaleAspectFit
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PodcastCell
+        
+        let podcast = self.podcasts[indexPath.row]
+        cell.podcast = podcast
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 132 
+    }
 }
