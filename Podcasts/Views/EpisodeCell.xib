@@ -18,21 +18,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="380" height="142.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kU-ZD-zdd">
-                        <rect key="frame" x="9" y="11" width="108" height="109"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="podcast" translatesAutoresizingMaskIntoConstraints="NO" id="0kU-ZD-zdd">
+                        <rect key="frame" x="16" y="21.5" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="P1y-2I-YHr"/>
+                            <constraint firstAttribute="height" constant="100" id="gKR-gd-14Y"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mP6-vx-A6P">
-                        <rect key="frame" x="125" y="18" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-wH-bKL">
+                        <rect key="frame" x="132" y="39" width="232" height="65"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pubDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0z-H1-6Ln">
+                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.50018066167831421" green="0.28142315149307251" blue="0.87837618589401245" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN4-Nm-pGX">
+                                <rect key="frame" x="0.0" y="23.5" width="31" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-VF-Vhw">
+                                <rect key="frame" x="0.0" y="48" width="72.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="0kU-ZD-zdd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7bM-JY-o8x"/>
+                    <constraint firstItem="0kU-ZD-zdd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="dDS-ft-YxH"/>
+                    <constraint firstItem="BEM-wH-bKL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dZ1-yO-nZy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BEM-wH-bKL" secondAttribute="trailing" id="tD3-6Y-196"/>
+                    <constraint firstItem="BEM-wH-bKL" firstAttribute="leading" secondItem="0kU-ZD-zdd" secondAttribute="trailing" constant="16" id="tTL-qm-NtM"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="3EW-VF-Vhw" id="0lo-Ir-GId"/>
+                <outlet property="episodeImageView" destination="0kU-ZD-zdd" id="hqr-Ya-fDN"/>
+                <outlet property="pubDateLabel" destination="u0z-H1-6Ln" id="hsz-y1-gxf"/>
+                <outlet property="titleLabel" destination="SN4-Nm-pGX" id="scH-Tv-4go"/>
+            </connections>
             <point key="canvasLocation" x="84.799999999999997" y="190.25487256371815"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="podcast" width="50" height="50"/>
+    </resources>
 </document>

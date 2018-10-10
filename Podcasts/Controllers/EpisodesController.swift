@@ -62,7 +62,8 @@ class EpisodesController : UITableViewController {
     //MARK:- SetupWork
     
     fileprivate func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        let nib = UINib(nibName: "EpisodeCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellId)
         tableView.tableFooterView = UIView()
     }
     
@@ -73,10 +74,15 @@ class EpisodesController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let episode = episodes[indexPath.row]
-        cell.textLabel?.text = episode.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! EpisodeCell
+       let episode = episodes[indexPath.row]
+       
+        cell.episode = episode
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 134
     }
     
     
