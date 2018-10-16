@@ -18,6 +18,8 @@ class EpisodeCell: UITableViewCell {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM dd, yyyy"
             pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
+            let url = URL(string: episode.imageURL?.toSecureHTTPS() ?? "")
+            episodeImageView.sd_setImage(with: url)
         }
     }
 
